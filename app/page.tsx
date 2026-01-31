@@ -3,45 +3,83 @@ import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
   return (
-    <main> 
-      <Navbar /> 
-      <section className="relative h-screen overflow-hidden"> 
+    <main className="min-h-screen">
+      <Navbar />
 
-        {/* Background stack */} 
-        <div className="absolute inset-0 z-0"> 
+      <section className="relative isolate overflow-hidden">
+        {/* Hero height: full screen on mobile, slightly shorter on desktop */}
+        <div className="relative h-svh min-h-160 md:h-[86svh]">
+          {/* Background video */}
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/hero.mp4" type="video/mp4" />
+          </video>
 
-          {/* Video wrapper (fills the hero) */} 
-          <div className="absolute inset-0"> 
-            <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" > 
-              <source src="/hero.mp4" type="video/mp4" /> 
-            </video> 
+          {/* Overlays: cinematic vignette + contrast */}
+          <div className="absolute inset-0 bg-black/44" />
+          <div className="absolute inset-0 bg-[radial-gradient(75%_60%_at_50%_35%,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.72)_70%,rgba(0,0,0,0.88)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(7,10,18,0.85)_0%,rgba(7,10,18,0.15)_35%,rgba(7,10,18,0.85)_100%)]" />
 
-          </div> {/* Overlay (test red) */} 
-          <div className="absolute inset-0 bg-black opacity-70 z-20" /> 
+          {/* Subtle top glow (accent) */}
+          <div className="pointer-events-none absolute -top-24 left-1/2 h-56 w-2xl -translate-x-1/2 rounded-full bg-[rgba(255,77,46,0.18)] blur-3xl" />
+
+          {/* Content */}
+          <div className="relative z-10 flex h-full items-center justify-center px-6 pt-24">
+            <div className="mx-auto w-full max-w-6xl text-center">
+              {/* Kicker */}
+              <p className="text-[12px] sm:text-[13px] md:text-[14px] font-extrabold uppercase tracking-[0.42em] text-white/80">
+                For MMA fighters &amp; combat gyms
+              </p>
+
+              {/* Headline */}
+              <h1 className="font-display mt-7 sm:mt-8 text-white text-balance">
+                <span className="block font-black uppercase italic leading-[0.9] tracking-[-0.03em] drop-shadow-[0_14px_48px_rgba(0,0,0,0.75)] text-[clamp(2.6rem,6vw,6.2rem)]">
+                  We create high-impact content
+                </span>
+                <span className="block font-black uppercase italic leading-[0.9] tracking-[-0.03em] drop-shadow-[0_14px_48px_rgba(0,0,0,0.75)] text-[clamp(2.6rem,6vw,6.2rem)]">
+                  that builds hype.
+                </span>
+              </h1>
+
+              {/* Subcopy */}
+              <p className="mx-auto mt-7 max-w-3xl text-white/82 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed font-semibold">
+                Videography, photography, and editing — training montages, fight highlights, interviews, promos.
+                Built to help fighters stand out on social media.
+              </p>
+
+              {/* CTAs */}
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link
+                  href="/enquire"
+                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-(--accent) px-10 py-4 text-[18px] sm:text-[20px] md:text-[22px] font-black uppercase italic tracking-[0.14em] text-black shadow-[0_18px_55px_rgba(0,0,0,0.55)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(255,77,46,0.35)]"
+                >
+                  <span className="relative z-10">Get a Quote</span>
+                  {/* sheen */}
+                  <span className="pointer-events-none absolute -left-1/3 top-0 h-full w-1/3 -skew-x-12 bg-white/35 opacity-0 blur-[1px] transition-opacity duration-200 group-hover:opacity-100 group-hover:animate-sheen" />
+                </Link>
+
+                <Link
+                  href="/gallery"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/5 px-9 py-4 text-[14px] sm:text-[15px] md:text-[16px] font-extrabold uppercase tracking-[0.2em] text-white/90 backdrop-blur-md transition hover:bg-white/10 hover:border-white/35 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/20"
+                >
+                  View Work
+                </Link>
+              </div>
+
+              {/* Micro trust line */}
+              <p className="mt-9 text-[12px] sm:text-[13px] uppercase tracking-[0.26em] text-white/55">
+                Fast turnaround • Social-first edits • Cinematic visuals
+              </p>
+            </div>
+          </div>
         </div>
-
-        {/* Centered content */} 
-        <div className="relative z-50 flex h-full items-center justify-center px-6 pt-20"> 
-          <div className="w-full max-w-6xl text-center"> 
-            {/* Top kicker */} 
-            <p className="font-extrabold uppercase tracking-[0.45em] text-white/85 text-[13px] sm:text-[15px] md:text-[18px]"> 
-            FOR MMA FIGHTERS &amp; COMBAT GYMS 
-            </p> 
-            {/* Headline (responsive, HUGE) */} 
-            <h1 className="mt-8 font-black uppercase italic tracking-tight leading-[0.92] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.85)]"> 
-              <span className="block text-[42px] sm:text-[58px] md:text-[78px] lg:text-[96px] xl:text-[112px]"> WE CREATE HIGH-IMPACT CONTENT </span> 
-              <span className="block text-[42px] sm:text-[58px] md:text-[78px] lg:text-[96px] xl:text-[112px]"> THAT BUILDS HYPE. </span> 
-            </h1> 
-            {/* Sub copy (thicker + readable) */} 
-            <p className="mx-auto mt-8 max-w-4xl text-white/85 font-semibold text-[14px] sm:text-[16px] md:text-[20px] leading-relaxed"> Videography, photography, and editing — training montages, fight highlights, interviews, promos. <br /> Built to help fighters stand out on social media. </p> 
-            
-            {/* CTA (big + rounded + premium) */} 
-            <div className="mt-10"> 
-              <Link href="/enquire" className="inline-flex items-center justify-center rounded-2xl bg-[var(--accent)] px-10 sm:px-12 md:px-14 py-4 md:py-5 text-[18px] sm:text-[22px] md:text-[28px] font-black uppercase italic tracking-[0.14em] text-black shadow-[0_18px_50px_rgba(0,0,0,0.55)] hover:brightness-110 active:brightness-95 transition" > GET A QUOTE 
-              </Link> 
-            </div> 
-          </div> 
-        </div> 
-      </section> 
-    </main>);
+      </section>
+    </main>
+  );
 }
