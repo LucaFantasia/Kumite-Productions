@@ -1,10 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* Your custom styles */
 :root {
   --bg: #070a12;
-  --text: rgba(255, 255, 255, 0.92);
+  --text: rgba(255, 255, 255, 0.94);
   --accent: #ff4d2e;
 }
 
@@ -16,11 +15,11 @@ body {
 body {
   background: var(--bg);
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.film-grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 3px 3px;
-  opacity: 0.12;
-  mix-blend-mode: overlay;
+a {
+  text-decoration: none;
+  color: inherit;
 }

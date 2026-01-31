@@ -3,71 +3,45 @@ import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
   return (
-    <main>
-      <Navbar />
+    <main> 
+      <Navbar /> 
+      <section className="relative h-screen overflow-hidden"> 
 
-      <section className="relative h-screen overflow-hidden">
-        {/* Background video */}
-        <div className="absolute inset-0">
-          <video
-            className="h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source src="/hero.mp4" type="video/mp4" />
-          </video>
+        {/* Background stack */} 
+        <div className="absolute inset-0 z-0"> 
 
-          {/* ✅ Make video less distracting:
-              - stronger dark overlay
-              - slight blur
-              - slight desaturate
-          */}
-          <div className="absolute inset-0 bg-black/80" />
-          <div className="absolute inset-0 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 [filter:saturate(0.7)_contrast(1.05)]" />
+          {/* Video wrapper (fills the hero) */} 
+          <div className="absolute inset-0"> 
+            <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" > 
+              <source src="/hero.mp4" type="video/mp4" /> 
+            </video> 
+
+          </div> {/* Overlay (test red) */} 
+          <div className="absolute inset-0 bg-black opacity-70 z-20" /> 
         </div>
 
-        {/* Centered content */}
-        <div className="relative flex h-full items-center justify-center px-6 pt-16">
-          <div className="w-full max-w-6xl text-center">
-            <p className="text-sm md:text-base font-bold uppercase tracking-[0.45em] text-white/70"
-              style={{fontSize: "20px", fontWeight: "bold"}}>
-              FOR MMA FIGHTERS & COMBAT GYMS
-            </p>
-
-            {/* ✅ WAY bigger headline (3 lines) */}
-            <h1 className="mt-8 font-black uppercase italic tracking-tight leading-[0.9] text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
-              style={{fontSize: "80px"}}>
-              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
-                WE CREATE
-              </span>
-              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
-                HIGH-IMPACT CONTENT
-              </span>
-              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
-                THAT BUILDS HYPE.
-              </span>
-            </h1>
-
-            <p>Videography, photography, and editing = training montages, fight highlights, interviews, promos.
-              Built to help fighters stand out on social media.
-            </p>
-
-            {/* ✅ BIG CTA button (not link-styled) */}
-            <div className="mt-12">
-              <Link
-                href="/enquire"
-                className="inline-flex items-center justify-center bg-[var(--accent)] px-14 py-6 text-lg md:text-xl font-extrabold uppercase tracking-[0.14em] text-black no-underline hover:brightness-110 active:brightness-95 transition"
-              >
-                GET A QUOTE
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+        {/* Centered content */} 
+        <div className="relative z-50 flex h-full items-center justify-center px-6 pt-20"> 
+          <div className="w-full max-w-6xl text-center"> 
+            {/* Top kicker */} 
+            <p className="font-extrabold uppercase tracking-[0.45em] text-white/85 text-[13px] sm:text-[15px] md:text-[18px]"> 
+            FOR MMA FIGHTERS &amp; COMBAT GYMS 
+            </p> 
+            {/* Headline (responsive, HUGE) */} 
+            <h1 className="mt-8 font-black uppercase italic tracking-tight leading-[0.92] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.85)]"> 
+              <span className="block text-[42px] sm:text-[58px] md:text-[78px] lg:text-[96px] xl:text-[112px]"> WE CREATE HIGH-IMPACT CONTENT </span> 
+              <span className="block text-[42px] sm:text-[58px] md:text-[78px] lg:text-[96px] xl:text-[112px]"> THAT BUILDS HYPE. </span> 
+            </h1> 
+            {/* Sub copy (thicker + readable) */} 
+            <p className="mx-auto mt-8 max-w-4xl text-white/85 font-semibold text-[14px] sm:text-[16px] md:text-[20px] leading-relaxed"> Videography, photography, and editing — training montages, fight highlights, interviews, promos. <br /> Built to help fighters stand out on social media. </p> 
+            
+            {/* CTA (big + rounded + premium) */} 
+            <div className="mt-10"> 
+              <Link href="/enquire" className="inline-flex items-center justify-center rounded-2xl bg-[var(--accent)] px-10 sm:px-12 md:px-14 py-4 md:py-5 text-[18px] sm:text-[22px] md:text-[28px] font-black uppercase italic tracking-[0.14em] text-black shadow-[0_18px_50px_rgba(0,0,0,0.55)] hover:brightness-110 active:brightness-95 transition" > GET A QUOTE 
+              </Link> 
+            </div> 
+          </div> 
+        </div> 
+      </section> 
+    </main>);
 }
