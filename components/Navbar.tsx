@@ -46,7 +46,8 @@ export default function Navbar() {
                 text-xs sm:text-sm md:text-base
                 font-extrabold uppercase tracking-[0.14em]
                 text-white whitespace-nowrap
-                hover:bg-white hover:text-black transition
+                hover:border-white/90
+                transition
               "
             >
               Get a Quote
