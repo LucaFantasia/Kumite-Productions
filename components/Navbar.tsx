@@ -43,7 +43,7 @@ export default function Navbar() {
               <Link
                 href="/enquire"
                 className="inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/5 px-5 py-3 text-sm font-extrabold uppercase tracking-[0.14em] text-white/90 backdrop-blur-md transition
-                           hover:bg-white hover:text-black hover:border-white
+                          hover:border-white
                            focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/20"
               >
                 Get a Quote
