@@ -40,7 +40,6 @@ function ContentBox({ title, usesVideo }: { title: string; usesVideo?: boolean }
       "
       style={{ transformOrigin: "center" }}
     >
-      {/* Background media */}
       {usesVideo ? (
         <video
           className="
@@ -57,18 +56,10 @@ function ContentBox({ title, usesVideo }: { title: string; usesVideo?: boolean }
           <source src="/hero.mp4" type="video/mp4" />
         </video>
       ) : (
-        <div
-          className="
-            absolute inset-0
-            bg-[radial-gradient(120%_120%_at_20%_20%,rgba(255,77,46,0.20)_0%,rgba(0,0,0,0)_55%)]
-          "
-        />
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_20%,rgba(255,77,46,0.20)_0%,rgba(0,0,0,0)_55%)]" />
       )}
 
-      {/* Base overlay */}
       <div className="absolute inset-0 bg-black/42" />
-
-      {/* Hover overlay */}
       <div
         className="
           absolute inset-0
@@ -77,11 +68,8 @@ function ContentBox({ title, usesVideo }: { title: string; usesVideo?: boolean }
           bg-[linear-gradient(to_top,rgba(0,0,0,0.62)_0%,rgba(0,0,0,0.10)_55%,rgba(0,0,0,0.62)_100%)]
         "
       />
-
-      {/* Subtle inner highlight */}
       <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
 
-      {/* Title */}
       <div className="relative z-10 flex h-full items-center justify-center p-5">
         <p
           className="
@@ -96,6 +84,61 @@ function ContentBox({ title, usesVideo }: { title: string; usesVideo?: boolean }
         >
           {title}
         </p>
+      </div>
+    </div>
+  );
+}
+
+function CtaPanel({
+  title,
+  body,
+  href,
+  buttonText,
+}: {
+  title: string;
+  body: string;
+  href: string;
+  buttonText: string;
+}) {
+  return (
+    <div
+      className="
+        relative overflow-hidden rounded-3xl
+        border border-white/14 bg-white/5
+        shadow-[0_22px_70px_rgba(0,0,0,0.55)]
+      "
+    >
+      {/* subtle accent wash */}
+      <div className="pointer-events-none absolute -top-20 left-10 h-48 w-72 rounded-full bg-[color:rgba(255,77,46,0.16)] blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 right-10 h-56 w-80 rounded-full bg-white/5 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_60%)]" />
+
+      <div className="relative z-10 p-8 sm:p-10 md:p-12 text-center">
+        <h3 className="font-display text-white font-black uppercase italic tracking-[-0.02em] text-[clamp(1.6rem,3vw,2.4rem)]">
+          {title}
+        </h3>
+        <p className="mx-auto mt-4 max-w-2xl text-white/75 text-[15px] sm:text-[16px] leading-relaxed font-semibold">
+          {body}
+        </p>
+
+        <div className="mt-8 flex justify-center">
+          <Link
+            href={href}
+            className="
+              group relative inline-flex items-center justify-center overflow-hidden
+              rounded-2xl bg-white px-9 py-4
+              text-[13px] sm:text-[14px]
+              font-extrabold uppercase tracking-[0.22em]
+              text-black
+              transition-transform duration-200
+              hover:-translate-y-0.5 active:translate-y-0
+              focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/20
+            "
+          >
+            <span className="relative z-10">{buttonText}</span>
+            <span className="pointer-events-none absolute -left-1/3 top-0 h-full w-1/3 -skew-x-12 bg-black/10 opacity-0 blur-[1px] transition-opacity duration-200 group-hover:opacity-100 group-hover:animate-sheen" />
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -120,7 +163,6 @@ export default function HomePage() {
             <source src="/hero.mp4" type="video/mp4" />
           </video>
 
-          {/* Overlays */}
           <div className="absolute inset-0 bg-black/35" />
           <div className="absolute inset-0 bg-[radial-gradient(75%_60%_at_50%_35%,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.55)_70%,rgba(0,0,0,0.72)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(7,10,18,0.78)_0%,rgba(7,10,18,0.14)_35%,rgba(7,10,18,0.88)_100%)]" />
@@ -147,7 +189,6 @@ export default function HomePage() {
                 interviews, promos. Built to help fighters stand out on social media.
               </p>
 
-              {/* Only one CTA now */}
               <div className="mt-10 flex justify-center">
                 <Link
                   href="/enquire"
@@ -220,11 +261,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* More compact grid: reduced gaps + more square tiles */}
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-12">
             {contentCards.map((c) => (
               <div key={c.title} className={`${c.span} col-span-1`}>
-                {/* Squarer height */}
                 <div className="h-[150px] sm:h-[170px] md:h-[180px]">
                   <ContentBox title={c.title} usesVideo={c.usesVideo} />
                 </div>
@@ -233,6 +272,94 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* SERVICES + GALLERY CTA SECTIONS */}
+      <section className="bg-[var(--bg)] text-black">
+        <div className="mx-auto w-full max-w-6xl px-6 pb-20 md:pb-24">
+          <div className="grid gap-6 md:grid-cols-2">
+            <CtaPanel
+              title="Explore our services"
+              body="Videography, photography, and editing packages tailored for fighters, gyms, and promotions."
+              href="/services"
+              buttonText="View services"
+            />
+            <CtaPanel
+              title="See the gallery"
+              body="A quick look at the style — highlights, training content, fight nights, and cinematic edits."
+              href="/gallery"
+              buttonText="View gallery"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[var(--bg)] text-white border-t border-white/10">
+        <div className="mx-auto w-full max-w-6xl px-6 py-14">
+          <div className="grid gap-10 md:grid-cols-3 md:items-start">
+            {/* Brand / logo placeholder */}
+            <div>
+              {/* Swap this block with your real logo later */}
+              <div className="font-display text-[22px] font-black uppercase italic tracking-[-0.02em]">
+                Kumite<span className="text-[var(--accent)]">.</span>
+                <span className="ml-2 text-[11px] uppercase tracking-[0.38em] text-white/70 not-italic font-extrabold">
+                  Productions
+                </span>
+              </div>
+              <p className="mt-4 max-w-sm text-white/65 text-sm leading-relaxed">
+                MMA-focused videography, photography and editing — built for social-first content that hits hard.
+              </p>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.22em] text-white/70">
+                Contact
+              </p>
+              <div className="mt-4 space-y-3 text-sm">
+                <a
+                  href="mailto:kumiteproductions@outlook.com"
+                  className="inline-flex items-center gap-3 text-white/80 hover:text-white transition"
+                >
+                  <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" />
+                  kumiteproductions@outlook.com
+                </a>
+              </div>
+            </div>
+
+            {/* Social */}
+            <div>
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.22em] text-white/70">
+                Social
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {/* Replace hrefs with your real links */}
+                <a
+                  href="https://www.instagram.com/kumite_productions/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-[12px] font-extrabold uppercase tracking-[0.22em] text-white/85 hover:bg-white/10 hover:text-white transition"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://www.youtube.com/@kumiteproductions2000"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-[12px] font-extrabold uppercase tracking-[0.22em] text-white/85 hover:bg-white/10 hover:text-white transition"
+                >
+                  YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-8 text-xs text-white/55 md:flex-row md:items-center md:justify-between">
+            <p>© {new Date().getFullYear()} Kumite Productions. All rights reserved.</p>
+            <p className="uppercase tracking-[0.18em]">London • UK</p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
