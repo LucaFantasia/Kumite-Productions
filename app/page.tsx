@@ -212,17 +212,17 @@ export default function HomePage() {
 
       {/* LOGO STRIP */}
       <section className="bg-[#f4f4f4] text-black">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16 md:py-20">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-10 sm:py-14 md:py-20">
           <div className="text-center">
             <p className="text-[14px] sm:text-[15px] md:text-[16px] font-extrabold uppercase tracking-[0.22em] text-black/65">
               We&apos;ve produced content for:
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-x-14 gap-y-14 sm:grid-cols-3 md:grid-cols-5 items-center">
+          <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-10 sm:gap-x-14 sm:gap-y-14 sm:grid-cols-3 md:grid-cols-5 items-center">
             {logos.map((logo) => (
               <div key={logo.src} className="flex items-center justify-center">
-                <div className="group relative h-20 w-[260px] sm:h-22 sm:w-[280px] md:h-24 md:w-[300px]">
+                <div className="group relative h-14 w-[150px] sm:h-18 sm:w-[220px] md:h-24 md:w-[300px]">
                   <img
                     src={`${logo.src}?v=${LOGO_VERSION}`}
                     alt={logo.alt}

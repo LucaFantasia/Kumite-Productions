@@ -9,29 +9,27 @@ const nav = [
 export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="w-full border-b border-white/10 bg-black/45 backdrop-blur-xl">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="grid h-20 grid-cols-3 items-center">
+      <div className="w-full bg-black/60 backdrop-blur-md border-b border-white/10">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          {/* Top row */}
+          <div className="flex h-16 md:h-20 items-center justify-between">
             {/* Brand */}
-            <div className="justify-self-start">
-              <Link href="/" className="group inline-flex items-baseline gap-2">
-                <span className="font-display text-[20px] sm:text-[22px] font-black uppercase italic tracking-[-0.02em] text-white">
-                  Kumite<span className="text-(--accent)">.</span>
-                </span>
-                <span className="hidden sm:inline text-[11px] uppercase tracking-[0.38em] text-white/70 group-hover:text-white/80 transition">
-                  Productions
-                </span>
-              </Link>
-            </div>
+            <Link href="/" className="flex items-baseline gap-2 min-w-0">
+              <span className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-white whitespace-nowrap">
+                KUMITE<span className="text-[var(--accent)]">.</span>
+              </span>
+              <span className="hidden sm:inline text-[10px] sm:text-xs uppercase tracking-[0.35em] text-white/70 whitespace-nowrap">
+                PRODUCTIONS
+              </span>
+            </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex justify-self-center items-center gap-10">
+            <nav className="hidden md:flex items-center gap-10">
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative text-sm font-extrabold uppercase tracking-[0.18em] text-white/85 hover:text-white transition
-                             after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-(--accent) after:transition-transform after:duration-200 hover:after:scale-x-100"
+                  className="text-sm md:text-base font-extrabold uppercase tracking-[0.18em] text-white hover:text-white/90 transition"
                 >
                   {item.label}
                 </Link>
@@ -39,29 +37,35 @@ export default function Navbar() {
             </nav>
 
             {/* CTA */}
-            <div className="justify-self-end">
-              <Link
-                href="/enquire"
-                className="inline-flex items-center justify-center rounded-2xl border border-white/25 bg-white/5 px-5 py-3 text-sm font-extrabold uppercase tracking-[0.14em] text-white/90 backdrop-blur-md transition
-                          hover:border-white
-                           focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/20"
-              >
-                Get a Quote
-              </Link>
-            </div>
+            <Link
+              href="/enquire"
+              className="
+                inline-flex items-center justify-center
+                rounded-2xl border border-white/40 bg-white/5
+                px-4 sm:px-6 py-2.5 sm:py-3
+                text-xs sm:text-sm md:text-base
+                font-extrabold uppercase tracking-[0.14em]
+                text-white whitespace-nowrap
+                hover:bg-white hover:text-black transition
+              "
+            >
+              Get a Quote
+            </Link>
           </div>
 
-          {/* Mobile nav */}
-          <div className="md:hidden pb-3 flex items-center justify-center gap-6">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-white/85 hover:text-white transition"
-              >
-                {item.label}
-              </Link>
-            ))}
+          {/* Mobile nav row */}
+          <div className="md:hidden pb-3">
+            <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              {nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-xs font-extrabold uppercase tracking-[0.18em] text-white/90 hover:text-white transition"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </div>
