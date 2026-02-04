@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import HeroVideo from "@/components/HeroVideo";
+import ContentTile from "@/components/ContentTile";
 
 const LOGO_VERSION = "3"; // bump when you replace logo files
 
@@ -17,15 +19,16 @@ type ContentCard = {
   usesVideo?: boolean;
 };
 
-const contentCards: ContentCard[] = [
-  { title: "SPARRING", span: "md:col-span-6", usesVideo: true },
-  { title: "TRAINING", span: "md:col-span-6", usesVideo: true },
-  { title: "FIGHT NIGHT", span: "md:col-span-4", usesVideo: true },
-  { title: "TRAINING MONTAGE", span: "md:col-span-4", usesVideo: true },
-  { title: "INTERVIEWS", span: "md:col-span-4", usesVideo: true },
-  { title: "PHOTOGRAPHY", span: "md:col-span-6", usesVideo: false },
-  { title: "HIGHLIGHTS", span: "md:col-span-6", usesVideo: true },
+const contentCards = [
+  { title: "SPARRING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
+  { title: "TRAINING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
+  { title: "FIGHT NIGHT", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
+  { title: "TRAINING MONTAGE", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
+  { title: "INTERVIEWS", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
+  { title: "PHOTOGRAPHY", span: "md:col-span-6", poster: "/tiles/cwp-poster.png" }, // no video
+  { title: "HIGHLIGHTS", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
 ];
+
 
 function ContentBox({ title, usesVideo }: { title: string; usesVideo?: boolean }) {
   return (
@@ -152,18 +155,9 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
         <div className="relative h-[100svh]">
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source src="/hero.mp4" type="video/mp4" />
-          </video>
+          <HeroVideo className="absolute inset-0 h-full w-full object-cover" />
 
-          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-black/20" />
           <div className="absolute inset-0 bg-[radial-gradient(75%_60%_at_50%_35%,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.55)_70%,rgba(0,0,0,0.72)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(7,10,18,0.78)_0%,rgba(7,10,18,0.14)_35%,rgba(7,10,18,0.88)_100%)]" />
 
@@ -219,10 +213,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-10 sm:gap-x-14 sm:gap-y-14 sm:grid-cols-3 md:grid-cols-5 items-center">
+          <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-10 sm:grid sm:grid-cols-3 sm:gap-x-14 sm:gap-y-14 md:grid-cols-5 items-center">
             {logos.map((logo) => (
               <div key={logo.src} className="flex items-center justify-center">
-                <div className="group relative h-14 w-[150px] sm:h-18 sm:w-[220px] md:h-24 md:w-[300px]">
+                <div className="group relative h-14 w-[140px] sm:h-18 sm:w-[220px] md:h-24 md:w-[300px]">
                   <img
                     src={`${logo.src}?v=${LOGO_VERSION}`}
                     alt={logo.alt}
@@ -265,7 +259,7 @@ export default function HomePage() {
             {contentCards.map((c) => (
               <div key={c.title} className={`${c.span} col-span-1`}>
                 <div className="h-[150px] sm:h-[170px] md:h-[180px]">
-                  <ContentBox title={c.title} usesVideo={c.usesVideo} />
+                  <ContentTile title={c.title} posterSrc={c.poster} videoSrc={c.video} />
                 </div>
               </div>
             ))}
