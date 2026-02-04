@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 function mustGetEnv(name: string) {
   const v = process.env[name];
@@ -31,25 +31,14 @@ export async function POST(req: Request) {
       return Response.json({ ok: false, error: "Please add a bit more detail." }, { status: 400 });
     }
 
-    const SMTP_HOST = mustGetEnv("SMTP_HOST");
-    const SMTP_PORT = Number(mustGetEnv("SMTP_PORT"));
-    const SMTP_USER = mustGetEnv("SMTP_USER");
-    const SMTP_PASS = mustGetEnv("SMTP_PASS");
+    const resend = new Resend(mustGetEnv("RESEND_API_KEY"));
 
-    const MAIL_FROM = mustGetEnv("MAIL_FROM"); // e.g. "Kumite Productions <no-reply@yourdomain.com>"
-    const ENQUIRE_TO = mustGetEnv("ENQUIRE_TO"); // e.g. "contact@kumiteproductions.co.uk"
+    const ENQUIRE_TO = mustGetEnv("ENQUIRE_TO"); // kumiteproductions@outlook.com
+    const MAIL_FROM = mustGetEnv("MAIL_FROM");   // e.g. "Kumite Productions <onboarding@resend.dev>"
     const SITE_NAME = process.env.SITE_NAME || "Kumite Productions";
-
-    const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: SMTP_PORT,
-      secure: SMTP_PORT === 465, // true for 465, false otherwise
-      auth: { user: SMTP_USER, pass: SMTP_PASS },
-    });
 
     const servicesText = services.map((s) => `• ${s}`).join("\n");
 
-    // 1) Email to Kumite
     const subjectToTeam = `New enquiry (${services.join(", ")})`;
     const textToTeam = `New enquiry received
 
@@ -61,7 +50,6 @@ Details:
 ${details}
 `;
 
-    // 2) Confirmation email to user
     const subjectToUser = `We received your enquiry — ${SITE_NAME}`;
     const textToUser = `Thanks for reaching out!
 
@@ -78,7 +66,8 @@ ${details}
 — ${SITE_NAME}
 `;
 
-    await transporter.sendMail({
+    // 1) Email to Kumite
+    await resend.emails.send({
       from: MAIL_FROM,
       to: ENQUIRE_TO,
       replyTo: email,
@@ -86,7 +75,8 @@ ${details}
       text: textToTeam,
     });
 
-    await transporter.sendMail({
+    // 2) Confirmation to user
+    await resend.emails.send({
       from: MAIL_FROM,
       to: email,
       subject: subjectToUser,
@@ -95,7 +85,7 @@ ${details}
 
     return Response.json({ ok: true });
   } catch (err: any) {
-    // Avoid leaking sensitive info to client
+    console.error("ENQUIRE EMAIL ERROR (RESEND):", err);
     return Response.json(
       { ok: false, error: "Server error sending email. Please try again later." },
       { status: 500 }
