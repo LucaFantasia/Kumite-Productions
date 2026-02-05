@@ -33,8 +33,8 @@ export async function POST(req: Request) {
 
     const resend = new Resend(mustGetEnv("RESEND_API_KEY"));
 
-    const ENQUIRE_TO = mustGetEnv("ENQUIRE_TO"); // kumiteproductions@outlook.com
-    const MAIL_FROM = mustGetEnv("MAIL_FROM");   // e.g. "Kumite Productions <onboarding@resend.dev>"
+    const ENQUIRE_TO = mustGetEnv("ENQUIRE_TO"); 
+    const MAIL_FROM = mustGetEnv("MAIL_FROM");   
     const SITE_NAME = process.env.SITE_NAME || "Kumite Productions";
 
     const servicesText = services.map((s) => `• ${s}`).join("\n");
