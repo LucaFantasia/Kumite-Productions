@@ -312,11 +312,11 @@ export default function HomePage() {
               </p>
               <div className="mt-4 space-y-3 text-sm">
                 <a
-                  href="mailto:contact@kumiteproductions.com"
+                  href="mailto:enquire@kumiteproductions.com"
                   className="inline-flex items-center gap-3 text-white/80 hover:text-white transition"
                 >
                   <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" />
-                  contact@kumiteproductions.com
+                  enquire@kumiteproductions.com
                 </a>
               </div>
             </div>
