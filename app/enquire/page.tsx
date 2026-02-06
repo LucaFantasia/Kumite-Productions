@@ -22,7 +22,7 @@ export default function EnquirePage() {
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-white/72 text-[15px] sm:text-[16px] leading-relaxed font-semibold">
-              Tell us what you need — we’ll reply with pricing, availability, and next steps.
+              Tell us what you need. We'll reply with pricing, availability, and next steps.
             </p>
           </div>
 

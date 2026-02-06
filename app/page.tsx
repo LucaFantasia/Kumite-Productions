@@ -13,12 +13,6 @@ const logos = [
   { src: "/logos/gymbox.png", alt: "Gymbox" },
 ];
 
-type ContentCard = {
-  title: string;
-  span: string; // grid span classes for desktop
-  usesVideo?: boolean;
-};
-
 const contentCards = [
   { title: "SPARRING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
   { title: "TRAINING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
@@ -28,69 +22,6 @@ const contentCards = [
   { title: "PHOTOGRAPHY", span: "md:col-span-6", poster: "/tiles/cwp-poster.png" }, // no video
   { title: "HIGHLIGHTS", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
 ];
-
-
-function ContentBox({ title, usesVideo }: { title: string; usesVideo?: boolean }) {
-  return (
-    <div
-      className="
-        group relative h-full w-full overflow-hidden rounded-2xl
-        border border-white/18 bg-white/5
-        shadow-[0_18px_55px_rgba(0,0,0,0.45)]
-        transition-transform duration-300 ease-out
-        hover:scale-[1.03] hover:z-20
-        focus-within:scale-[1.03] focus-within:z-20
-      "
-      style={{ transformOrigin: "center" }}
-    >
-      {usesVideo ? (
-        <video
-          className="
-            absolute inset-0 h-full w-full object-cover
-            opacity-0 transition-opacity duration-300 ease-out
-            group-hover:opacity-100
-          "
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
-      ) : (
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_20%,rgba(255,77,46,0.20)_0%,rgba(0,0,0,0)_55%)]" />
-      )}
-
-      <div className="absolute inset-0 bg-black/42" />
-      <div
-        className="
-          absolute inset-0
-          opacity-0 transition-opacity duration-300
-          group-hover:opacity-100
-          bg-[linear-gradient(to_top,rgba(0,0,0,0.62)_0%,rgba(0,0,0,0.10)_55%,rgba(0,0,0,0.62)_100%)]
-        "
-      />
-      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
-
-      <div className="relative z-10 flex h-full items-center justify-center p-5">
-        <p
-          className="
-            font-display text-white
-            font-black uppercase italic
-            tracking-[-0.02em]
-            drop-shadow-[0_14px_48px_rgba(0,0,0,0.75)]
-            text-[clamp(1.25rem,2.0vw,2.1rem)]
-            transition-transform duration-300
-            group-hover:translate-y-[-1px]
-          "
-        >
-          {title}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function CtaPanel({
   title,
@@ -157,7 +88,7 @@ export default function HomePage() {
         <div className="relative h-[100svh]">
           <HeroVideo className="absolute inset-0 h-full w-full object-cover" />
 
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/10" />
           <div className="absolute inset-0 bg-[radial-gradient(75%_60%_at_50%_35%,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.55)_70%,rgba(0,0,0,0.72)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(7,10,18,0.78)_0%,rgba(7,10,18,0.14)_35%,rgba(7,10,18,0.88)_100%)]" />
 
@@ -179,7 +110,7 @@ export default function HomePage() {
               </h1>
 
               <p className="mx-auto mt-7 max-w-3xl text-white/82 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed font-semibold">
-                Videography, photography, and editing — training montages, fight highlights,
+                Videography, photography, and editing into training montages, fight highlights,
                 interviews, promos. Built to help fighters stand out on social media.
               </p>
 
@@ -250,7 +181,7 @@ export default function HomePage() {
               Content we produce:
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-white/75 text-[15px] sm:text-[16px] leading-relaxed font-semibold">
-              From fast-paced sparring edits to cinematic fight-night coverage — we build social-first
+              From fast-paced sparring edits to cinematic fight-night coverage. We build social-first
               content that feels premium and hits hard.
             </p>
           </div>
@@ -279,7 +210,7 @@ export default function HomePage() {
             />
             <CtaPanel
               title="See the gallery"
-              body="A quick look at the style — highlights, training content, fight nights, and cinematic edits."
+              body="A quick look at the style: highlights, training content, fight nights, and cinematic edits."
               href="/gallery"
               buttonText="View gallery"
             />
@@ -301,7 +232,7 @@ export default function HomePage() {
                 </span>
               </div>
               <p className="mt-4 max-w-sm text-white/65 text-sm leading-relaxed">
-                MMA-focused videography, photography and editing — built for social-first content that hits hard.
+                MMA-focused videography, photography and editing. Built for social-first content that hits hard.
               </p>
             </div>
 

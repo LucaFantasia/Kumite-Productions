@@ -40,9 +40,8 @@ export default function HeroVideo({ className }: HeroVideoProps) {
       preload="auto"
       poster="/hero-poster.jpg"
     >
-      {/* <source src="/hero-1080.webm" type="video/webm" /> */}
-      {/* <source src="/hero-1080.mp4" type="video/mp4" /> */}
-      <source src="/hero.mp4" type="video/mp4" />
+      <source src="/hero-720.webm" type="video/webm" />
+      <source src="/hero-720.mp4" type="video/mp4" />
     </video>
   );
 }

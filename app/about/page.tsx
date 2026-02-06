@@ -72,7 +72,7 @@ export default function AboutPage() {
 
               <p className="mt-6 max-w-2xl text-white/72 text-[15px] sm:text-[16px] leading-relaxed font-semibold">
                 Kumite Productions creates high-impact videography, photography, and edits for
-                MMA fighters and combat gyms — content designed to grab attention and build hype
+                MMA fighters and combat gyms. Producing content designed to grab attention and build hype
                 on social media.
               </p>
 
@@ -132,7 +132,7 @@ export default function AboutPage() {
                     Behind the lens
                   </p>
                   <p className="mt-2 text-white/80 text-[13px] sm:text-[14px] font-semibold leading-relaxed">
-                    The goal is simple: make fighters look like stars — with pace, grit, and
+                    The goal is simple: make fighters look like stars with pace, grit, and
                     cinematic polish.
                   </p>
                 </div>
@@ -150,7 +150,7 @@ export default function AboutPage() {
               <InfoCard
                 eyebrow="Mission"
                 title="Make you impossible to ignore"
-                body="We’re here to help fighters, gyms, and promotions stand out. Clean visuals, strong storytelling, and edits that hit hard — built for attention on Instagram, YouTube, and beyond."
+                body="We’re here to help fighters, gyms, and promotions stand out. Clean visuals, strong storytelling, and edits that hit hard that are built for attention on Instagram, YouTube, and beyond."
               />
             </div>
 
@@ -158,7 +158,7 @@ export default function AboutPage() {
               <InfoCard
                 eyebrow="Style"
                 title="Fast, gritty, premium"
-                body="We blend fight energy with cinematic polish — sharp camera work, bold framing, clean audio, and social-first pacing. Whether it’s sparring, training, or fight night, we keep it authentic."
+                body="We blend fight energy with cinematic polish using sharp camera work, bold framing, clean audio, and social-first pacing. Whether it’s sparring, training, or fight night, we keep it authentic."
               />
             </div>
 
@@ -244,7 +244,7 @@ export default function AboutPage() {
                   Want content that hits hard?
                 </h3>
                 <p className="mx-auto mt-4 max-w-2xl text-white/72 text-[15px] sm:text-[16px] leading-relaxed font-semibold">
-                  Send an enquiry with what you need — we’ll come back with pricing, availability,
+                  Send an enquiry with what you need. We'll come back with pricing, availability,
                   and the next steps.
                 </p>
                 <div className="mt-7 flex justify-center">
