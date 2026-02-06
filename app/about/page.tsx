@@ -137,11 +137,6 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-
-              <p className="mt-3 text-xs text-white/50">
-                Tip: you can swap this image anytime (keep the same file name, or update the
-                src).
-              </p>
             </div>
           </div>
         </div>
