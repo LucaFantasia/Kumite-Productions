@@ -15,13 +15,13 @@ const logos = [
 ];
 
 const contentCards = [
-  { title: "SPARRING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
-  { title: "TRAINING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
-  { title: "FIGHT NIGHT", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
-  { title: "TRAINING MONTAGE", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
-  { title: "INTERVIEWS", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
-  { title: "PHOTOGRAPHY", span: "md:col-span-6", poster: "/tiles/cwp-poster.png" }, // no video
-  { title: "HIGHLIGHTS", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4" },
+  { title: "SPARRING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#sparring" },
+  { title: "TRAINING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#training" },
+  { title: "FIGHT NIGHT", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#fight-night" },
+  { title: "TRAINING MONTAGE", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#training-montage" },
+  { title: "INTERVIEWS", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#interviews" },
+  { title: "PHOTOGRAPHY", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", href: "/gallery#photography" }, // no video
+  { title: "HIGHLIGHTS", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#highlights" },
 ];
 
 function CtaPanel({
@@ -191,7 +191,9 @@ export default function HomePage() {
             {contentCards.map((c) => (
               <div key={c.title} className={`${c.span} col-span-1`}>
                 <div className="h-[150px] sm:h-[170px] md:h-[180px]">
-                  <ContentTile title={c.title} posterSrc={c.poster} videoSrc={c.video} />
+                  <Link href={c.href} className="block h-full focus-visible:outline-none">
+                    <ContentTile title={c.title} posterSrc={c.poster} videoSrc={c.video} />
+                  </Link>
                 </div>
               </div>
             ))}
