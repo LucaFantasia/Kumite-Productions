@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Kumite Productions",
   description:
     "MMA-focused videography, photography, and editing. Training montages, fight highlights, interviews, promos.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon.ico?v=2" }],
 };
 
 export default function RootLayout({
