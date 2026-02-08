@@ -132,7 +132,7 @@ export default function EnquireForm() {
       {/* Details */}
       <div>
         <label className="block text-[12px] font-extrabold uppercase tracking-[0.22em] text-white/75">
-          Details
+          Details (must be atleast 10 characters)
         </label>
         <textarea
           value={details}

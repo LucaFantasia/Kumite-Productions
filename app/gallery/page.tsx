@@ -11,14 +11,13 @@ type GalleryItem = {
   poster: string; // local path (/posters/x.jpg) or full URL
   url?: string; // fallback: open in new tab
   youtubeId?: string; // optional: enables modal embed
+  imageSrc?: string;
 };
 
 type Section = {
   id:
     | "sparring"
     | "training"
-    | "fight-night"
-    | "training-montage"
     | "interviews"
     | "photography"
     | "highlights";
@@ -82,13 +81,16 @@ function GalleryCard({
   onOpen: (item: GalleryItem) => void;
 }) {
   const playable = Boolean(item.youtubeId);
-  const clickable = playable || Boolean(item.url);
+  const isImage = Boolean(item.imageSrc);
+  const clickable = playable || isImage || Boolean(item.url);
   const comingSoon = !clickable;
 
   const handleClick = () => {
     if (item.youtubeId) return onOpen(item);
+    if (item.imageSrc) return onOpen(item);
     if (item.url) window.open(item.url, "_blank", "noopener,noreferrer");
   };
+
 
   return (
     <button
@@ -116,6 +118,12 @@ function GalleryCard({
             <div className="rounded-full border border-white/20 bg-black/40 px-4 py-2 backdrop-blur-md">
               <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-white/80">
                 Coming soon
+              </span>
+            </div>
+          ) : isImage ? (
+              <div className="rounded-full border border-white/20 bg-black/40 px-4 py-2 backdrop-blur-md">
+              <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-white/80">
+                View
               </span>
             </div>
           ) : (
@@ -149,6 +157,73 @@ function GalleryCard({
     </button>
   );
 }
+
+function ImageModal({
+  open,
+  item,
+  onClose,
+}: {
+  open: boolean;
+  item: GalleryItem | null;
+  onClose: () => void;
+}) {
+  if (!open || !item?.imageSrc) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image preview"
+      onClick={onClose}
+    >
+      <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
+
+      <div
+        className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/12 bg-black shadow-[0_30px_90px_rgba(0,0,0,0.75)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4">
+          <div className="min-w-0">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-white/60">
+              Viewing
+            </p>
+            <p className="truncate font-display text-white font-black uppercase italic tracking-[-0.02em]">
+              {item.title}
+            </p>
+          </div>
+          <button
+            onClick={onClose}
+            className="rounded-2xl border border-white/20 bg-white/5 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-white/80 hover:bg-white/10 hover:text-white transition"
+          >
+            Close
+          </button>
+        </div>
+
+        <div className="bg-black">
+          <img
+            src={item.imageSrc}
+            alt={item.title}
+            className="max-h-[78vh] w-full object-contain"
+            loading="eager"
+          />
+        </div>
+
+        <div className="px-5 py-4">
+          <a
+            href={item.imageSrc}
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs font-extrabold uppercase tracking-[0.22em] text-white/70 hover:text-white transition"
+          >
+            Open full size →
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function VideoModal({
   open,
@@ -227,72 +302,46 @@ export default function GalleryPage() {
         description:
           "Fast-paced sparring edits built for intensity, timing, and clean visuals.",
         items: [
-          { title: "Sample 01", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 02", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 03", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
+          { title: "Sample 01", poster: "/gallery/sparring01.png", youtubeId: "D22hyhI_ppM" },
+          { title: "Sample 02", poster: "/gallery/sparring02.png", youtubeId: "fY-przEZ5Rg" },
+          { title: "Sample 03", poster: "/gallery/sparring03.png", youtubeId: "Y9etly7xwn0" },
         ],
       },
       {
         id: "training",
         label: "Training",
         description:
-          "Training content that shows the work — clean shots, real moments, premium polish.",
+          "Training content that shows the work with clean shots, real moments, premium polish.",
         items: [
-          { title: "Sample 01", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 02", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 03", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
+          { title: "Sample 01", poster: "/gallery/training01.png", youtubeId: "wI2revxKra4" },
+          { title: "Sample 02", poster: "/gallery/training02.png", youtubeId: "zQjvr7LIMCg" },
+          { title: "Sample 03", poster: "/gallery/training03.png", youtubeId: "Wt-ddFgTH8E" },
         ],
-      },
-      {
-        id: "fight-night",
-        label: "Fight Night",
-        description:
-          "Event coverage that captures the atmosphere — walkouts, moments, wins.",
-        items: [
-          { title: "Sample 01", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 02", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 03", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-        ],
-      },
-      {
-        id: "training-montage",
-        label: "Training Montage",
-        description:
-          "Montages designed to build hype — rhythm, sound design, and premium grading.",
-        items: [
-          { title: "Sample 01", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 02", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 03", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-        ],
-      },
-      {
-        id: "interviews",
-        label: "Interviews",
-        description: "Fighter interviews and gym stories — coming soon.",
-        items: [],
       },
       {
         id: "photography",
         label: "Photography",
         description:
-          "Posters, portraits, and action shots — sharp, clean, and social-ready.",
+          "Posters, portraits, and action shots.",
         items: [
           // If photography examples are images, you can set url to open an Instagram post / album / etc
-          { title: "Sample 01", poster: "/hero-poster.jpg", url: "https://example.com" },
-          { title: "Sample 02", poster: "/hero-poster.jpg", url: "https://example.com" },
-          { title: "Sample 03", poster: "/hero-poster.jpg", url: "https://example.com" },
+          { title: "Sample 01", poster: "/gallery/photo01.jpeg", imageSrc: "/gallery/photo01.jpeg" },
+          { title: "Sample 02", poster: "/gallery/photo02.jpeg", imageSrc: "/gallery/photo02.jpeg" },
+          { title: "Sample 03", poster: "/gallery/photo03.jpeg", imageSrc: "/gallery/photo03.jpeg" },
         ],
+      },
+      {
+        id: "interviews",
+        label: "Interviews",
+        description: "Fighter interviews and gym stories. Samples coming soon.",
+        items: [],
       },
       {
         id: "highlights",
         label: "Highlights",
         description:
-          "Highlight edits that hit hard — momentum, clarity, and the right moments.",
-        items: [
-          { title: "Sample 01", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 02", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-          { title: "Sample 03", poster: "/hero-poster.jpg", youtubeId: "REPLACE_ME" },
-        ],
+          "Fight highlight edits that hit hard. Samples coming soon.",
+        items: [],
       },
     ],
     []
@@ -302,10 +351,11 @@ export default function GalleryPage() {
   const [active, setActive] = useState<GalleryItem | null>(null);
 
   const openItem = (item: GalleryItem) => {
-    if (!item.youtubeId) return;
+    if (!item.youtubeId && !item.imageSrc) return;
     setActive(item);
     setOpen(true);
   };
+
 
   const close = () => {
     setOpen(false);
@@ -334,11 +384,6 @@ export default function GalleryPage() {
               The energy.
             </span>
           </h1>
-
-          <p className="mt-6 max-w-3xl text-white/72 text-[15px] sm:text-[16px] leading-relaxed font-semibold">
-            Click any example to watch. Each section matches the content types on the home page —
-            so those tiles can link directly here.
-          </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
             {sections.map((s) => (
@@ -371,12 +416,25 @@ export default function GalleryPage() {
                     />
                   ))}
                 </div>
+
+                <div className="mt-6 text-right">
+                  <a
+                    href="https://www.instagram.com/kumite_productions/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-extrabold uppercase tracking-[0.22em] text-white/60 hover:text-white transition"
+                  >
+                    More on Instagram →
+                  </a>
+                </div>
+
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      <ImageModal open={open} item={active} onClose={close} />
       <VideoModal open={open} item={active} onClose={close} />
       <Footer />
     </main>

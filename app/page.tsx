@@ -17,8 +17,6 @@ const logos = [
 const contentCards = [
   { title: "SPARRING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#sparring" },
   { title: "TRAINING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#training" },
-  { title: "FIGHT NIGHT", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#fight-night" },
-  { title: "TRAINING MONTAGE", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#training-montage" },
   { title: "INTERVIEWS", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#interviews" },
   { title: "PHOTOGRAPHY", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", href: "/gallery#photography" }, // no video
   { title: "HIGHLIGHTS", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#highlights" },
