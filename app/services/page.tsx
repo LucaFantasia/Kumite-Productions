@@ -20,7 +20,7 @@ function Pill({ text }: { text: string }) {
 function ServiceCard({ title, subtitle, bullets, includes }: ServiceCardProps) {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/12 bg-white/5 shadow-[0_22px_70px_rgba(0,0,0,0.55)]">
-      <div className="pointer-events-none absolute -top-24 left-10 h-56 w-80 rounded-full bg-[color:rgba(255,77,46,0.14)] blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 left-10 h-56 w-80 rounded-full bg-[rgba(255,77,46,0.14)] blur-3xl" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
 
       <div className="relative grid md:grid-cols-12">
@@ -30,7 +30,7 @@ function ServiceCard({ title, subtitle, bullets, includes }: ServiceCardProps) {
           <img
             src="/hero-poster.jpg"
             alt={`${title} example`}
-            className="h-[240px] w-full object-cover sm:h-[280px] md:h-full md:min-h-[420px]"
+            className="h-60 w-full object-cover sm:h-70 md:h-full md:min-h-105"
             loading="lazy"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.10)_55%,rgba(0,0,0,0.55)_100%)]" />
@@ -57,7 +57,7 @@ function ServiceCard({ title, subtitle, bullets, includes }: ServiceCardProps) {
                 key={b}
                 className="flex gap-3 text-white/72 text-sm sm:text-[15px] font-semibold leading-relaxed"
               >
-                <span className="mt-[6px] h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-(--accent)" />
                 <span>{b}</span>
               </li>
             ))}
@@ -79,14 +79,14 @@ function ServiceCard({ title, subtitle, bullets, includes }: ServiceCardProps) {
               href="/enquire"
               className="
                 inline-flex items-center justify-center
-                rounded-2xl bg-[var(--accent)] px-7 py-3.5
+                rounded-2xl bg-(--accent) px-7 py-3.5
                 text-[13px] sm:text-[14px]
                 font-black uppercase italic tracking-[0.14em]
                 text-black
                 shadow-[0_18px_55px_rgba(0,0,0,0.55)]
                 transition-transform duration-200
                 hover:-translate-y-0.5 active:translate-y-0
-                focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[color:rgba(255,77,46,0.35)]
+                focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(255,77,46,0.35)]
               "
             >
               Get a quote
@@ -104,12 +104,12 @@ function ServiceCard({ title, subtitle, bullets, includes }: ServiceCardProps) {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+    <main className="min-h-screen bg-(--bg) text-(--text)">
       <Navbar />
 
       {/* HERO */}
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14">
-        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-[56rem] -translate-x-1/2 rounded-full bg-[color:rgba(255,77,46,0.16)] blur-3xl" />
+        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-4xl -translate-x-1/2 rounded-full bg-[rgba(255,77,46,0.16)] blur-3xl" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
 
         <div className="relative mx-auto w-full max-w-6xl px-6">

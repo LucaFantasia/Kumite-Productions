@@ -44,13 +44,13 @@ function InfoCard({
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+    <main className="min-h-screen bg-(--bg) text-(--text)">
       <Navbar />
 
       {/* HERO */}
       <section className="relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-18">
         {/* accent glow + soft wash */}
-        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-[56rem] -translate-x-1/2 rounded-full bg-[color:rgba(255,77,46,0.16)] blur-3xl" />
+        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-4xl -translate-x-1/2 rounded-full bg-[rgba(255,77,46,0.16)] blur-3xl" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
 
         <div className="relative mx-auto w-full max-w-6xl px-6">
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 The team behind the camera
               </p>
 
-              <h1 className="font-display mt-6 text-white [text-wrap:balance]">
+              <h1 className="font-display mt-6 text-white text-balance">
                 <span className="block font-black uppercase italic leading-[0.9] tracking-[-0.03em] drop-shadow-[0_14px_48px_rgba(0,0,0,0.75)] text-[clamp(2.4rem,5.2vw,4.3rem)]">
                   Built for fighters.
                 </span>
@@ -81,14 +81,14 @@ export default function AboutPage() {
                   href="/enquire"
                   className="
                     inline-flex items-center justify-center
-                    rounded-2xl bg-[var(--accent)] px-7 py-3.5
+                    rounded-2xl bg-(--accent) px-7 py-3.5
                     text-[13px] sm:text-[14px]
                     font-black uppercase italic tracking-[0.14em]
                     text-black
                     shadow-[0_18px_55px_rgba(0,0,0,0.55)]
                     transition-transform duration-200
                     hover:-translate-y-0.5 active:translate-y-0
-                    focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[color:rgba(255,77,46,0.35)]
+                    focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(255,77,46,0.35)]
                   "
                 >
                   Get a quote
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 <img
                   src="/about/about.jpeg"
                   alt="Behind the lens — Kumite Productions"
-                  className="h-[360px] w-full object-cover sm:h-[420px] md:h-[520px]"
+                  className="h-90 w-full object-cover sm:h-105 md:h-130"
                   loading="lazy"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
@@ -143,14 +143,14 @@ export default function AboutPage() {
       </section>
 
       {/* MAIN CONTENT */}
-      <section className="bg-[var(--bg)] pb-18">
+      <section className="bg-(--bg) pb-18">
         <div className="mx-auto w-full max-w-6xl px-6">
           <div className="grid gap-6 md:grid-cols-12">
             <div className="md:col-span-6">
               <InfoCard
                 eyebrow="Mission"
                 title="Make you impossible to ignore"
-                body="We’re here to help fighters, gyms, and promotions stand out. Clean visuals, strong storytelling, and edits that hit hard that are built for attention on Instagram, YouTube, and beyond."
+                body="We're here to help fighters, gyms, and promotions stand out. Clean visuals, strong storytelling, and edits that hit hard that are built for attention on Instagram, YouTube, and beyond."
               />
             </div>
 
@@ -158,13 +158,13 @@ export default function AboutPage() {
               <InfoCard
                 eyebrow="Style"
                 title="Fast, gritty, premium"
-                body="We blend fight energy with cinematic polish using sharp camera work, bold framing, clean audio, and social-first pacing. Whether it’s sparring, training, or fight night, we keep it authentic."
+                body="We blend fight energy with cinematic polish using sharp camera work, bold framing, clean audio, and social-first pacing. Whether it's sparring, training, or fight night, we keep it authentic."
               />
             </div>
 
             <div className="md:col-span-12">
               <div className="relative overflow-hidden rounded-3xl border border-white/12 bg-white/5 shadow-[0_22px_70px_rgba(0,0,0,0.55)]">
-                <div className="pointer-events-none absolute -top-24 left-12 h-56 w-80 rounded-full bg-[color:rgba(255,77,46,0.14)] blur-3xl" />
+                <div className="pointer-events-none absolute -top-24 left-12 h-56 w-80 rounded-full bg-[rgba(255,77,46,0.14)] blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-24 right-10 h-56 w-96 rounded-full bg-white/5 blur-3xl" />
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
 
@@ -186,7 +186,7 @@ export default function AboutPage() {
                         Plan
                       </p>
                       <p className="mt-3 text-white/72 text-sm leading-relaxed font-semibold">
-                        You tell us what you need (event, location, vibe). We’ll align on deliverables
+                        You tell us what you need (event, location, vibe). We'll align on deliverables
                         and a style reference.
                       </p>
                     </div>
@@ -237,7 +237,7 @@ export default function AboutPage() {
           {/* CTA */}
           <div className="mt-10">
             <div className="relative overflow-hidden rounded-3xl border border-white/12 bg-white/5 shadow-[0_22px_70px_rgba(0,0,0,0.55)]">
-              <div className="pointer-events-none absolute -top-20 left-10 h-48 w-72 rounded-full bg-[color:rgba(255,77,46,0.16)] blur-3xl" />
+              <div className="pointer-events-none absolute -top-20 left-10 h-48 w-72 rounded-full bg-[rgba(255,77,46,0.16)] blur-3xl" />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
               <div className="relative p-7 sm:p-8 md:p-10 text-center">
                 <h3 className="font-display text-white font-black uppercase italic tracking-[-0.02em] text-[clamp(1.6rem,3vw,2.3rem)]">
@@ -252,13 +252,13 @@ export default function AboutPage() {
                     href="/enquire"
                     className="
                       group relative inline-flex items-center justify-center overflow-hidden
-                      rounded-2xl bg-[var(--accent)] px-10 py-4
+                      rounded-2xl bg-(--accent) px-10 py-4
                       text-[14px] sm:text-[15px]
                       font-black uppercase italic tracking-[0.14em]
                       text-black
                       transition-transform duration-200
                       hover:-translate-y-0.5 active:translate-y-0
-                      focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[color:rgba(255,77,46,0.35)]
+                      focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(255,77,46,0.35)]
                     "
                   >
                     <span className="relative z-10">Get a quote</span>

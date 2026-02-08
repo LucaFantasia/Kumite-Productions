@@ -104,7 +104,7 @@ function GalleryCard({
         ${comingSoon ? "opacity-75 cursor-not-allowed" : "hover:-translate-y-1"}
       `}
     >
-      <div className="relative h-[180px] sm:h-[200px]">
+      <div className="relative h-45 sm:h-50">
         <img
           src={item.poster}
           alt={item.title}
@@ -171,7 +171,7 @@ function ImageModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6"
+      className="fixed inset-0 z-100 flex items-center justify-center px-4 py-6"
       role="dialog"
       aria-modal="true"
       aria-label="Image preview"
@@ -238,7 +238,7 @@ function VideoModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6"
+      className="fixed inset-0 z-100 flex items-center justify-center px-4 py-6"
       role="dialog"
       aria-modal="true"
       aria-label="Video player"
@@ -363,12 +363,12 @@ export default function GalleryPage() {
   };
 
   return (
-    <main id="top" className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+    <main id="top" className="min-h-screen bg-(--bg) text-(--text)">
       <Navbar />
 
       {/* HERO */}
       <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14">
-        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-[56rem] -translate-x-1/2 rounded-full bg-[color:rgba(255,77,46,0.16)] blur-3xl" />
+        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-4xl -translate-x-1/2 rounded-full bg-[rgba(255,77,46,0.16)] blur-3xl" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
 
         <div className="relative mx-auto w-full max-w-6xl px-6">

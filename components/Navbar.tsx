@@ -53,7 +53,7 @@ export default function Navbar() {
               ) : (
                 <div className="flex items-baseline gap-2 min-w-0 md:hidden">
                   <span className="text-lg font-extrabold uppercase tracking-tight text-white whitespace-nowrap">
-                    KUMITE<span className="text-[var(--accent)]">.</span>
+                    KUMITE<span className="text-(--accent)">.</span>
                   </span>
                   <span className="text-[10px] uppercase tracking-[0.35em] text-white/70 whitespace-nowrap">
                     PRODUCTIONS
@@ -64,7 +64,7 @@ export default function Navbar() {
               {/* Desktop wordmark */}
               <div className="hidden md:flex items-baseline gap-2 min-w-0">
                 <span className="text-xl font-extrabold uppercase tracking-tight text-white whitespace-nowrap">
-                  KUMITE<span className="text-[var(--accent)]">.</span>
+                  KUMITE<span className="text-(--accent)">.</span>
                 </span>
                 <span className="text-xs uppercase tracking-[0.35em] text-white/70 whitespace-nowrap">
                   PRODUCTIONS

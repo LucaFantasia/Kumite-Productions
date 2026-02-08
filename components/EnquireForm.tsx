@@ -106,7 +106,7 @@ export default function EnquireForm() {
                   "bg-white/5 border-white/12 hover:border-white/20 hover:bg-white/7",
                   "focus:outline-none focus:ring-4 focus:ring-white/10",
                   active
-                    ? "border-[var(--accent)] bg-[color:rgba(255,77,46,0.14)]"
+                    ? "border-(--accent) bg-[rgba(255,77,46,0.14)]"
                     : "",
                 ].join(" ")}
               >
@@ -117,7 +117,7 @@ export default function EnquireForm() {
                   <div
                     className={[
                       "h-5 w-5 rounded-full border",
-                      active ? "border-[var(--accent)] bg-[var(--accent)]" : "border-white/25",
+                      active ? "border-(--accent) bg-(--accent)" : "border-white/25",
                     ].join(" ")}
                     aria-hidden="true"
                   />
@@ -175,7 +175,7 @@ export default function EnquireForm() {
           disabled={!canSubmit}
           className="
             group relative inline-flex items-center justify-center overflow-hidden
-            rounded-2xl bg-[var(--accent)] px-10 py-4
+            rounded-2xl bg-(--accent) px-10 py-4
             text-[14px] sm:text-[15px]
             font-extrabold uppercase italic tracking-[0.18em]
             text-black
@@ -183,7 +183,7 @@ export default function EnquireForm() {
             transition-transform duration-200
             hover:-translate-y-0.5 active:translate-y-0
             disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0
-            focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[color:rgba(255,77,46,0.35)]
+            focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(255,77,46,0.35)]
           "
         >
           <span className="relative z-10">{status === "loading" ? "Sending..." : "Enquire"}</span>

@@ -3,12 +3,12 @@ import EnquireForm from "@/components/EnquireForm";
 
 export default function EnquirePage() {
   return (
-    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+    <main className="min-h-screen bg-(--bg) text-(--text)">
       <Navbar />
 
       <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32">
         {/* subtle accent glow */}
-        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-[56rem] -translate-x-1/2 rounded-full bg-[color:rgba(255,77,46,0.16)] blur-3xl" />
+        <div className="pointer-events-none absolute -top-28 left-1/2 h-64 w-4xl -translate-x-1/2 rounded-full bg-[rgba(255,77,46,0.16)] blur-3xl" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_50%_20%,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
 
         <div className="relative mx-auto w-full max-w-6xl px-6">

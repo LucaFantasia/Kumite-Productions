@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--bg)] text-white border-t border-white/10">
+    <footer className="bg-(--bg) text-white border-t border-white/10">
         <div className="mx-auto w-full max-w-6xl px-6 py-14">
           <div className="grid gap-10 md:grid-cols-3 md:items-start">
             {/* Brand / logo placeholder */}
             <div>
               {/* Swap this block with your real logo later */}
               <div className="font-display text-[22px] font-black uppercase italic tracking-[-0.02em]">
-                Kumite<span className="text-[var(--accent)]">.</span>
+                Kumite<span className="text-(--accent)">.</span>
                 <span className="ml-2 text-[11px] uppercase tracking-[0.38em] text-white/70 not-italic font-extrabold">
                   Productions
                 </span>
@@ -29,7 +29,7 @@ export default function Footer() {
                   href="mailto:enquire@kumiteproductions.com"
                   className="inline-flex items-center gap-3 text-white/80 hover:text-white transition"
                 >
-                  <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" />
+                  <span className="inline-block h-2 w-2 rounded-full bg-(--accent)" />
                   enquire@kumiteproductions.com
                 </a>
               </div>
