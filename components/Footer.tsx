@@ -15,7 +15,7 @@ export default function Footer() {
                 </span>
               </div>
               <p className="mt-4 max-w-sm text-white/65 text-sm leading-relaxed">
-                MMA-focused videography, photography and editing. Built for social-first content that hits hard.
+                combat-focused videography, photography and editing. Built for social-first content that hits hard.
               </p>
             </div>
 

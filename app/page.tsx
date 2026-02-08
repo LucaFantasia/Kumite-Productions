@@ -16,10 +16,10 @@ const logos = [
 
 const contentCards = [
   { title: "SPARRING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#sparring" },
-  { title: "TRAINING", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#training" },
-  { title: "INTERVIEWS", span: "md:col-span-4", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#interviews" },
-  { title: "PHOTOGRAPHY", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", href: "/gallery#photography" }, // no video
-  { title: "HIGHLIGHTS", span: "md:col-span-6", poster: "/tiles/cwp-poster.png", video: "/tiles/cwp-720-short.mp4", href: "/gallery#highlights" },
+  { title: "TRAINING", span: "md:col-span-6", poster: "/gallery/training01.png", video: "/tiles/training.mp4", href: "/gallery#training" },
+  { title: "PHOTOGRAPHY", span: "md:col-span-6", poster: "/gallery/photo03.jpeg", href: "/gallery#photography" }, // no video
+  { title: "INTERVIEWS (COMING SOON)", span: "md:col-span-6", href: "/gallery#interviews" },
+  { title: "HIGHLIGHTS (COMING SOON)", span: "md:col-span-6", href: "/gallery#highlights" },
 ];
 
 function CtaPanel({
@@ -96,7 +96,7 @@ export default function HomePage() {
           <div className="relative z-10 flex h-full items-center justify-center px-6 pt-24">
             <div className="mx-auto w-full max-w-6xl text-center">
               <p className="text-[12px] sm:text-[13px] md:text-[14px] font-extrabold uppercase tracking-[0.42em] text-white/80">
-                For MMA fighters &amp; combat gyms
+                For fighters &amp; combat gyms
               </p>
 
               <h1 className="font-display mt-7 sm:mt-8 text-white [text-wrap:balance]">
@@ -186,16 +186,29 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-12">
-            {contentCards.map((c) => (
-              <div key={c.title} className={`${c.span} col-span-1`}>
-                <div className="h-[150px] sm:h-[170px] md:h-[180px]">
-                  <Link href={c.href} className="block h-full focus-visible:outline-none">
-                    <ContentTile title={c.title} posterSrc={c.poster} videoSrc={c.video} />
-                  </Link>
+            {contentCards.map((c, idx) => {
+              const isLastOdd =
+                contentCards.length % 2 === 1 && idx === contentCards.length - 1;
+
+              return (
+                <div
+                  key={c.title}
+                  className={[
+                    "col-span-1",
+                    c.span,
+                    isLastOdd ? "md:col-start-4 md:col-span-6" : "",
+                  ].join(" ")}
+                >
+                  <div className="h-[150px] sm:h-[170px] md:h-[180px]">
+                    <Link href={c.href} className="block h-full focus-visible:outline-none">
+                      <ContentTile title={c.title} posterSrc={c.poster} videoSrc={c.video} />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
         </div>
       </section>
 

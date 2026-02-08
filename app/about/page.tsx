@@ -72,7 +72,7 @@ export default function AboutPage() {
 
               <p className="mt-6 max-w-2xl text-white/72 text-[15px] sm:text-[16px] leading-relaxed font-semibold">
                 Kumite Productions creates high-impact videography, photography, and edits for
-                MMA fighters and combat gyms. Producing content designed to grab attention and build hype
+                fighters and combat gyms. Producing content designed to grab attention and build hype
                 on social media.
               </p>
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
               <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
                 <StatPill label="Focus" value="Combat Sports" />
                 <StatPill label="Output" value="Social-First" />
-                <StatPill label="Feel" value="Premium + Hard" />
+                <StatPill label="Feel" value="Premium" />
               </div>
             </div>
 

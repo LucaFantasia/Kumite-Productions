@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 type Props = {
   title: string;
-  posterSrc: string;
+  posterSrc?: string;
   videoSrc?: string; // omit for Photography
 };
 
@@ -51,7 +51,7 @@ export default function ContentTile({ title, posterSrc, videoSrc }: Props) {
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
-      ) : null}
+      ) : null }
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/42" />
